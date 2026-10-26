@@ -1,0 +1,16 @@
+<!--
+  Wazuh agent (macOS) - manager connection block
+  File: /Library/Ossec/etc/ossec.conf
+  127.0.0.1 works because VirtualBox NAT forwards host 1514/1515 into the Ubuntu VM.
+-->
+<client>
+  <server>
+    <address>127.0.0.1</address>
+    <port>1514</port>
+    <protocol>tcp</protocol>
+  </server>
+  <enrollment>
+    <enabled>yes</enabled>
+    <agent_name>MacBook-Agent</agent_name>
+  </enrollment>
+</client>

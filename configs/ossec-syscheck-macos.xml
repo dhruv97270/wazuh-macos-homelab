@@ -1,0 +1,24 @@
+<!--
+  Wazuh agent (macOS) - File Integrity Monitoring block
+  File: /Library/Ossec/etc/ossec.conf
+  /Users/dhruv is my macOS home folder.
+  FIM on macOS runs on scheduled scans (every 60 s here).
+-->
+<syscheck>
+  <disabled>no</disabled>
+
+  <!-- Scan every 60 seconds for the lab (default 43200 = 12 hours) -->
+  <frequency>60</frequency>
+  <scan_on_start>yes</scan_on_start>
+
+  <!-- Folder watched for the lab demo -->
+  <directories check_all="yes" report_changes="yes">/Users/dhruv/wazuh-test</directories>
+
+  <!-- Keep the default macOS system directories that ship in ossec.conf -->
+  <directories>/etc,/usr/bin,/usr/sbin</directories>
+  <directories>/bin,/sbin</directories>
+
+  <ignore>/etc/mtab</ignore>
+  <ignore>/etc/random-seed</ignore>
+  <ignore type="sregex">.log$|.swp$</ignore>
+</syscheck>
